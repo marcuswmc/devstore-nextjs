@@ -7,11 +7,13 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ["Inter", "ui-sans-serif", "system-ui"],
-    },
-    gridTemplateRows: {
-      app: 'min-content max-content'
+    extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui"],
+      },
+      gridTemplateRows: {
+        app: 'min-content max-content'
+      }
     }
   },
   plugins: [],
