@@ -8,14 +8,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Clean global cache
+        run: npm cache clean --force
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with: 
           node-version: 20
           cache: 'npm'
-          - run: npm ci
-          - run: npm test
+          name: Install dependencies
+          run: npm install
 
 
       - name: Cypress run
