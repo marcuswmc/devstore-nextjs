@@ -3,6 +3,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { api } from "@/data/api";
 import { Product } from "@/data/types/product";
+import { Suspense } from "react";
 
 
   type SearchParams = Promise<{
@@ -33,9 +34,11 @@ export default async function Search({searchParams}: {searchParams: SearchParams
 
   return (
     <div className="flex flex-col gap-4">
+      <Suspense fallback={null}>
       <p className="text-sm">
         Results for: <span className="font-semibold">{query}</span>
       </p>
+      
 
       <div className="grid grid-cols-3 gap-6">
         {products.map((product) => {
@@ -69,6 +72,7 @@ export default async function Search({searchParams}: {searchParams: SearchParams
           );
         })}
       </div>
+      </Suspense>
     </div>
   );
 }
